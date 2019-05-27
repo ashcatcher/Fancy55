@@ -61,13 +61,16 @@ body {
 
 /* Begin Fancy CSS */
 .nixie {
+  position: fixed;
+  top: 30%;
+  left: 30%;
   /* Variable Override Nixie Here */
   --nixie-back: #191919;
   --nixie-off: rgba(50, 50, 50, 0.15);
   --nixie-on: #48ffe5;
   --nixie-glow: #32f587;
   --nixie-shadow: 0 0 20px;
-  --nixie-size: 200px;
+  --nixie-size: 120px;
   --nixie-font: "Lato", sans-serif;
 
   /* Fix page distortion */
