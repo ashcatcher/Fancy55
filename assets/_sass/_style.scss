@@ -17,7 +17,7 @@ html {
   --nixie-back: #000;
   --nixie-off: rgba(50, 50, 50, 0.15);
   --nixie-shadow: 0 0 60px;
-  --nixie-font-size: 20vw;
+  --nixie-font-size: 10vw;
   --nixie-font: "Lato", sans-serif;
 
   // Logo Letter Variables
@@ -64,7 +64,7 @@ body {
 
     div {
       width: calc(0.6 * var(--tube-font-size));
-      height: calc(1.2 * var(--tube-font-size));
+      height: calc(1 * var(--tube-font-size));
       display: flex;
       align-items: center;
 
@@ -106,7 +106,7 @@ body {
   &--tube, &--digit {
     display: flex;
     justify-content: center;
-    width: calc(0.5 * var(--nixie-font-size));
+    width: calc(0.6 * var(--nixie-font-size));
     height: calc(1.5 * var(--nixie-font-size));
 
     &--element {
