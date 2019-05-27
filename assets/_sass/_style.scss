@@ -16,7 +16,7 @@ html {
   // Global Nixie Tube Variables
   --nixie-back: #000;
   --nixie-off: rgba(50, 50, 50, 0.15);
-  --nixie-shadow: 0 0 60px;
+  --nixie-shadow: 0px 0px 6px;
   --nixie-font-size: 10vw;
   --nixie-font: "Lato", sans-serif;
 
@@ -56,7 +56,7 @@ body {
     vertical-align: top;
     line-height: initial;
     color: var(--tube-text-color);
-    text-shadow: 0 0 60px var(--tube-glow-color);
+    text-shadow: 0 0 6px var(--tube-glow-color);
   }
 
   section {
@@ -75,7 +75,7 @@ body {
 
         &.active {
           color: var(--tube-text-color);
-          text-shadow: 0 0 60px var(--tube-glow-color);
+          text-shadow: 0 0 6px var(--tube-glow-color);
         }
       }
     }
@@ -86,7 +86,7 @@ p.separator {
   vertical-align: top;
   line-height: initial;
   color: var(--tube-text-color);
-  text-shadow: 0 0 60px var(--tube-glow-color);
+  text-shadow: 0 0 6px var(--tube-glow-color);
 }
 
 /* Begin Fancy CSS */
@@ -119,7 +119,7 @@ body {
     &--element {
       &--active {
         color: var(--color-primary);
-        text-shadow: 0 0 60px var(--color-primary-glow);
+        text-shadow: 0px 0px 6px var(--color-primary-glow);
         transition: 0.3s ease color, 0.3s ease text-shadow;
       }
     }
