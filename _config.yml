@@ -3,7 +3,7 @@ email: ryan@fancy55.com
 description: >
   Dynamite designs
 
-baseurl: '' # the subpath of your site, e.g. /blog
+baseurl: '/Fancy55' # the subpath of your site, e.g. /blog
 url: '' # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: # ginfuru
 github_username: # ginfuru
