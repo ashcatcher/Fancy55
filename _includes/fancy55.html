@@ -1,0 +1,85 @@
+---
+---
+<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+
+<div class="nixie">
+
+  {% assign capital_letters= "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z" |
+  split: ' ' %}
+  {% assign small_letters= "a b c d e f g h i j k l m n o p q r s t u v w x y z"
+  | split: ' ' %}
+
+
+  <span class="nixie--tube">
+    {% for capital_letter in capital_letters %}
+      <p class="nixie--tube--element">{{capital_letter}}</p>
+    {% endfor %}
+  </span>
+
+  <span class="nixie--tube">
+    {% for small_letter in small_letters %}
+      <p class="nixie--tube--element">{{small_letter}}</p>
+    {% endfor %}
+  </span>
+
+  <span class="nixie--tube">
+    {% for small_letter in small_letters %}
+      <p class="nixie--tube--element">{{small_letter}}</p>
+    {% endfor %}
+  </span>
+
+  <span class="nixie--tube">
+    {% for small_letter in small_letters %}
+      <p class="nixie--tube--element">{{small_letter}}</p>
+    {% endfor %}
+  </span>
+
+  <span class="nixie--tube">
+    {% for small_letter in small_letters %}
+      <p class="nixie--tube--element">{{small_letter}}</p>
+    {% endfor %}
+  </span>
+
+  <span class="nixie--digit">
+    {% for i in (0..9) %}
+      <p class="nixie--digit--element">{{i}}</p>
+    {% endfor %}
+  </span>
+
+  <span class="nixie--digit">
+    {% for i in (0..9) %}
+      <p class="nixie--digit--element">{{i}}</p>
+    {% endfor %}
+  </span>
+
+</div>
+
+
+  <script>
+    function isBetween(n, a, b) {
+      return (n - a) * (n - b) <= 0;
+    }
+
+    function isAlphabet(code) {
+      if (isBetween(code, 65, 90)) {
+        return code - 65;
+      }
+      if (isBetween(code, 97, 122)) {
+        return code - 97;
+      }
+      return 5;
+    }
+
+    const render = function renderDisplay(string) {
+      const tubes = document.getElementsByClassName("nixie--tube");
+      for (let i = 0; i < string.length; i += 1) {
+        const code = isAlphabet(string.charCodeAt(i));
+        const children = tubes[i].children;
+        children[code].classList.add("nixie--tube--element--active");
+      }
+    };
+
+    const input = "Hello";
+
+    window.addEventListener("load", render(input));
+  </script>

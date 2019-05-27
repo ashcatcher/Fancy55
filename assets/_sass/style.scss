@@ -1,0 +1,112 @@
+:root {
+  --tube-text-color: #48ffe5;
+  --tube-glow-color: #32f587;
+  --tube-font-size: 100px;
+}
+
+body {
+  background: #191919;
+}
+
+* {
+  margin: 0;
+}
+
+.clock {
+  color: rgba(50, 50, 50, 0.35);
+  display: flex;
+  margin: 20vh auto;
+  text-align: center;
+  background: #191919;
+  justify-content: center;
+  align-items: center;
+  line-height: initial;
+  font-size: var(--tube-font-size);
+  font-family: "Lato", sans-serif;
+  padding: 0;
+
+  p.separator {
+    font-size: calc(0.6 * var(--tube-font-size));
+    vertical-align: top;
+    line-height: initial;
+    color: var(--tube-text-color);
+    text-shadow: 0 0 60px var(--tube-glow-color);
+  }
+
+  section {
+    display: flex;
+
+    div {
+      width: calc(0.6 * var(--tube-font-size));
+      height: calc(1.2 * var(--tube-font-size));
+      display: flex;
+      align-items: center;
+
+      p {
+        position: absolute;
+        transition: 0.3s ease color, 0.3s ease text-shadow;
+        margin: 0;
+
+        &.active {
+          color: var(--tube-text-color);
+          text-shadow: 0 0 60px var(--tube-glow-color);
+        }
+      }
+    }
+  }
+}
+
+
+
+
+/* Begin Fancy CSS */
+.nixie {
+  /* Variable Override Nixie Here */
+  --nixie-back: #191919;
+  --nixie-off: rgba(50, 50, 50, 0.15);
+  --nixie-on: #48ffe5;
+  --nixie-glow: #32f587;
+  --nixie-shadow: 0 0 20px;
+  --nixie-size: 200px;
+  --nixie-font: "Lato", sans-serif;
+
+  /* Fix page distortion */
+  margin: 0;
+  padding: 0;
+  line-height: initial;
+
+  /* 2D Layout */
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+
+  /* Styling */
+  color: var(--nixie-off);
+  background: var(--nixie-back);
+  font-size: var(--nixie-size);
+  font-family: var(--nixie-font);
+
+  &--tube, &--digit {
+    display: inline-block;
+    width: calc(0.6 * var(--nixie-size));
+    height: calc(1.2 * var(--nixie-size));
+
+    &--element {
+      position: absolute;
+      transition: 0.3s ease color, 0.3s ease text-shadow;
+
+      &--active {
+        color: var(--nixie-on);
+        text-shadow: 0 0 20px var(--nixie-glow);
+      }
+    }
+  }
+}
+
+p.separator {
+  font-size: calc(0.6 * var(--tube-font-size));
+  vertical-align: top;
+  line-height: initial;
+  color: var(--tube-text-color);
+  text-shadow: 0 0 60px var(--tube-glow-color);
+}
