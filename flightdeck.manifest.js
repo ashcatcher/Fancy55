@@ -1,5 +1,5 @@
 module.exports = {
-  port: 4000,
+  port: 9001,
 
   tasks: {
     browsersync: true,
