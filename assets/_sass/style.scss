@@ -1,16 +1,24 @@
 :root {
+  // Clock Variables
   --tube-text-color: #48ffe5;
   --tube-glow-color: #32f587;
   --tube-font-size: 100px;
-  // These variables all do the same thing
-  // TODO: Refactor!!!
+
+  // Global Nixie Tube Variables
   --nixie-back: #191919;
   --nixie-off: rgba(50, 50, 50, 0.15);
-  --nixie-on: #48ffe5;
-  --nixie-glow: #32f587;
   --nixie-shadow: 0 0 20px;
-  --nixie-size: 120px;
+  --nixie-font-size: 10vw;
   --nixie-font: "Lato", sans-serif;
+
+  // Logo Letter Variables
+  --nixie-text-color: #E14Ed7;
+  --nixie-text-glow: #AD00A1;
+
+  // Logo Number Variables
+  --nixie-num-color: #00FF00;
+  --nixie-num-glow: #00AA00;
+
 }
 
 body {
@@ -89,13 +97,13 @@ body {
   /* Styling */
   color: var(--nixie-off);
   background: var(--nixie-back);
-  font-size: var(--nixie-size);
+  font-size: var(--nixie-font-size);
   font-family: var(--nixie-font);
 
   &--tube, &--digit {
     display: inline-block;
-    width: calc(0.6 * var(--nixie-size));
-    height: calc(1.2 * var(--nixie-size));
+    width: calc(0.6 * var(--nixie-font-size));
+    height: calc(1.2 * var(--nixie-font-size));
 
     &--element {
       position: absolute;
@@ -106,8 +114,8 @@ body {
   &--tube {
     &--element {
       &--active {
-        color: var(--nixie-on);
-        text-shadow: 0 0 20px var(--nixie-glow);
+        color: var(--nixie-text-color);
+        text-shadow: 0 0 20px var(--nixie-text-glow);
         transition: 0.3s ease color, 0.3s ease text-shadow;
       }
     }
@@ -116,18 +124,11 @@ body {
   &--digit {
     &--element {
       &--active {
-        color: var(--nixie-on);
-        text-shadow: 0 0 20px var(--nixie-glow);
+        color: var(--nixie-num-color);
+        text-shadow: 0 0 20px var(--nixie-num-glow);
         transition: 0.3s ease color, 0.3s ease text-shadow;
       }
     }
-  }
-
-
-  &--active {
-    color: var(--nixie-on);
-    text-shadow: 0 0 20px var(--nixie-glow);
-    transition: 0.3s ease color, 0.3s ease text-shadow;
   }
 }
 
