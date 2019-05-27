@@ -12,8 +12,8 @@
   --nixie-font: "Lato", sans-serif;
 
   // Logo Letter Variables
-  --nixie-text-color: #E14Ed7;
-  --nixie-text-glow: #AD00A1;
+  --nixie-text-color: #22d5e7;
+  --nixie-text-glow: #5899a5;
 
   // Logo Number Variables
   --nixie-num-color: #00FF00;
@@ -74,36 +74,31 @@ body {
 }
 
 
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
 
 
 /* Begin Fancy CSS */
 .nixie {
-  span > p {
-    transition: 0.3s ease color, 0.3s ease text-shadow;
-  }
-  position: fixed;
-  top: 20%;
-  margin-left: auto;
-  /* Variable Override Nixie Here */
-
-  /* Fix page distortion */
-  //margin: 0;
-  //padding: 0;
-  line-height: initial;
-
-  /* 2D Layout */
-  display: inline-block;
-
-  /* Styling */
+  text-align: center;
   color: var(--nixie-off);
   background: var(--nixie-back);
   font-size: var(--nixie-font-size);
   font-family: var(--nixie-font);
 
+  span > p {
+    transition: 0.3s ease color, 0.3s ease text-shadow;
+  }
+
   &--tube, &--digit {
     display: inline-block;
-    width: calc(0.6 * var(--nixie-font-size));
-    height: calc(1.2 * var(--nixie-font-size));
+    width: calc(0.5 * var(--nixie-font-size));
 
     &--element {
       position: absolute;
