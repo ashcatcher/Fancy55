@@ -1,0 +1,32 @@
+<script>
+  function turnOffDisplay() {
+    $('.nixie--tube--element--active').removeClass('nixie--tube--element--active');
+  }
+  function isBetween(n, a, b) {
+    return (n - a) * (n - b) <= 0;
+  }
+
+  function isAlphabet(code) {
+    if (isBetween(code, 65, 90)) {
+      return code - 65;
+    }
+    if (isBetween(code, 97, 122)) {
+      return code - 97;
+    }
+    return 5;
+  }
+
+  const render = function renderDisplay(string) {
+    turnOffDisplay();
+    const tubes = document.getElementsByClassName("nixie--tube");
+    for (let i = 0; i < string.length; i += 1) {
+      const code = isAlphabet(string.charCodeAt(i));
+      const children = tubes[i].children;
+      children[code].classList.add("nixie--tube--element--active");
+    }
+  };
+
+  const input = "Fancy";
+
+  window.addEventListener("load", render(input));
+</script>

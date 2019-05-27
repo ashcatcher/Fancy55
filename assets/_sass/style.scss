@@ -2,6 +2,15 @@
   --tube-text-color: #48ffe5;
   --tube-glow-color: #32f587;
   --tube-font-size: 100px;
+  // These variables all do the same thing
+  // TODO: Refactor!!!
+  --nixie-back: #191919;
+  --nixie-off: rgba(50, 50, 50, 0.15);
+  --nixie-on: #48ffe5;
+  --nixie-glow: #32f587;
+  --nixie-shadow: 0 0 20px;
+  --nixie-size: 120px;
+  --nixie-font: "Lato", sans-serif;
 }
 
 body {
@@ -61,27 +70,21 @@ body {
 
 /* Begin Fancy CSS */
 .nixie {
+  span > p {
+    transition: 0.3s ease color, 0.3s ease text-shadow;
+  }
   position: fixed;
-  top: 30%;
-  left: 30%;
+  top: 20%;
+  margin-left: auto;
   /* Variable Override Nixie Here */
-  --nixie-back: #191919;
-  --nixie-off: rgba(50, 50, 50, 0.15);
-  --nixie-on: #48ffe5;
-  --nixie-glow: #32f587;
-  --nixie-shadow: 0 0 20px;
-  --nixie-size: 120px;
-  --nixie-font: "Lato", sans-serif;
 
   /* Fix page distortion */
-  margin: 0;
-  padding: 0;
+  //margin: 0;
+  //padding: 0;
   line-height: initial;
 
   /* 2D Layout */
   display: inline-block;
-  justify-content: center;
-  align-items: center;
 
   /* Styling */
   color: var(--nixie-off);
@@ -97,12 +100,34 @@ body {
     &--element {
       position: absolute;
       transition: 0.3s ease color, 0.3s ease text-shadow;
+    }
+  }
 
+  &--tube {
+    &--element {
       &--active {
         color: var(--nixie-on);
         text-shadow: 0 0 20px var(--nixie-glow);
+        transition: 0.3s ease color, 0.3s ease text-shadow;
       }
     }
+  }
+
+  &--digit {
+    &--element {
+      &--active {
+        color: var(--nixie-on);
+        text-shadow: 0 0 20px var(--nixie-glow);
+        transition: 0.3s ease color, 0.3s ease text-shadow;
+      }
+    }
+  }
+
+
+  &--active {
+    color: var(--nixie-on);
+    text-shadow: 0 0 20px var(--nixie-glow);
+    transition: 0.3s ease color, 0.3s ease text-shadow;
   }
 }
 

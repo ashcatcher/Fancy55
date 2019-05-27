@@ -1,0 +1,18 @@
+<script>
+  function turnOffDigits() {
+    $('.nixie--digit--element--active').removeClass('nixie--digit--element--active');
+  }
+
+  const fancy55 = function renderDigits(string) {
+    turnOffDigits();
+    const tubes = document.getElementsByClassName("nixie--digit");
+    for (let i = 0; i < string.length; i += 1) {
+      const int = parseInt(string[i]);
+      const children = tubes[i].children;
+      children[int].classList.add("nixie--digit--element--active");
+    }
+  }
+
+  const twodigits = "55";
+  window.addEventListener("load", fancy55(twodigits));
+</script>
