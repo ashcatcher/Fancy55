@@ -120,6 +120,7 @@ body {
       &--active {
         color: var(--color-primary);
         text-shadow: 0 0 60px var(--color-primary-glow);
+        transition: 0.3s ease color, 0.3s ease text-shadow;
       }
     }
   }
