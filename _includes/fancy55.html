@@ -1,12 +1,105 @@
-<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+{% assign capital_letters= "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z" |
+split: ' ' %}
+{% assign small_letters= "a b c d e f g h i j k l m n o p q r s t u v w x y z"
+| split: ' ' %}
 
-<div class="nixie">
 
-  {% include fancy.html %}
-  
-  {% include 55.html %}
-  
-</div>
+<header class="header">
 
-{% include fancy_js.html %}
-{% include 55_js.html %}
+  <div class="nixie">
+    <span class="nixie--tube">
+      {% for capital_letter in capital_letters %}
+        <span class="nixie--tube--element">{{capital_letter}}</span>
+      {% endfor %}
+    </span>
+
+    <span class="nixie--tube">
+      {% for small_letter in small_letters %}
+        <span class="nixie--tube--element">{{small_letter}}</span>
+      {% endfor %}
+    </span>
+
+    <span class="nixie--tube">
+      {% for small_letter in small_letters %}
+        <span class="nixie--tube--element">{{small_letter}}</span>
+      {% endfor %}
+    </span>
+
+    <span class="nixie--tube">
+      {% for small_letter in small_letters %}
+        <span class="nixie--tube--element">{{small_letter}}</span>
+      {% endfor %}
+    </span>
+
+    <span class="nixie--tube">
+      {% for small_letter in small_letters %}
+        <span class="nixie--tube--element">{{small_letter}}</span>
+      {% endfor %}
+    </span>
+
+    <span class="nixie--digit">
+      {% for i in (0..9) %}
+        <span class="nixie--digit--element">{{i}}</span>
+      {% endfor %}
+    </span>
+
+    <span class="nixie--digit">
+      {% for i in (0..9) %}
+        <span class="nixie--digit--element">{{i}}</span>
+      {% endfor %}
+    </span>
+
+  </div>
+</header>
+
+<script>
+  function turnOffDisplay() {
+    $('.nixie--tube--element--active').removeClass('nixie--tube--element--active');
+  }
+  function isBetween(n, a, b) {
+    return (n - a) * (n - b) <= 0;
+  }
+
+  function isAlphabet(code) {
+    if (isBetween(code, 65, 90)) {
+      return code - 65;
+    }
+    if (isBetween(code, 97, 122)) {
+      return code - 97;
+    }
+    return 5;
+  }
+
+  const render = function renderDisplay(string) {
+    turnOffDisplay();
+    const tubes = document.getElementsByClassName("nixie--tube");
+    for (let i = 0; i < string.length; i += 1) {
+      const code = isAlphabet(string.charCodeAt(i));
+      const children = tubes[i].children;
+      children[code].classList.add("nixie--tube--element--active");
+    }
+  };
+
+  const input = "Fancy";
+
+  window.addEventListener("load", render(input));
+</script>
+
+<script>
+  function turnOffDigits() {
+    $('.nixie--digit--element--active').removeClass('nixie--digit--element--active');
+  }
+
+  const fancy55 = function renderDigits(string) {
+    turnOffDigits();
+    const tubes = document.getElementsByClassName("nixie--digit");
+    for (let i = 0; i < string.length; i += 1) {
+      const int = parseInt(string[i]);
+      const children = tubes[i].children;
+      children[int].classList.add("nixie--digit--element--active");
+    }
+  }
+
+  const twodigits = "55";
+  window.addEventListener("load", fancy55(twodigits));
+</script>
