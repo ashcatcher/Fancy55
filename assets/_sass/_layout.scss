@@ -1,6 +1,28 @@
 .container {
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 .clearfix {
   clear: both;
+}
+
+input {
+  width: 300px;
+  margin: 10px;
+  color: var(--color-primary);
+  background-color: black;
+  border-color: var(--color-primary-glow);
+}
+
+textarea {
+  margin: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-primary-glow);
+  background-color: black;
+  color: var(--color-primary);
+}
+
+.contact-form-submit {
+  text-align: center;
 }
