@@ -1,0 +1,96 @@
+// Variables for Fancy
+:root {
+  // Site Variables
+  --color-primary: #05E4E8;
+  --color-primary-glow: #424DA6;
+  --color-secondary: #FF9F26;
+  --color-secondary-glow: #E83123;
+  --color-accent: #E757FF;
+  // Clock Variables
+  --tube-text-color: #48ffe5;
+  --tube-glow-color: #32f587;
+  --tube-font-size: 100px;
+
+  // Global Nixie Tube Variables
+  --nixie-back: #000;
+  --nixie-off: rgba(50, 50, 50, 0.15);
+  --nixie-shadow: 0 0 60px;
+  --nixie-font-size: 20vw;
+  --nixie-font: "Lato", sans-serif;
+
+  // Logo Letter Variables
+  --nixie-text-color: #05E4E8;
+  --nixie-text-glow: #424DA6;
+
+  // Logo Number Variables
+  --nixie-num-color: #FF9F26;
+  --nixie-num-glow: #E83123;
+}
+// Variables from Solace
+:root {
+  --color-blue-dark: #002695;
+  --color-blue-light: #16aedd;
+
+  --color-red-dark: #450003;
+  --color-red-light: #710;
+
+  --color-yellow: #b69521;
+  --color-yellow-2: #c1b02c;
+
+  --color-teal-light: #5dbab0;
+  --color-teal-dark: #438382;
+
+  --color-violet-light: #cdc5ea;
+  --color-violet-mid: #c073c5;
+  --color-violet-dark: #6a41a9;
+
+  --color-green-light: #4dded9;
+  --color-green-dark: #2a80a3;
+
+  --color-sky: #9bdefb;
+  --color-iron: #906984;
+
+  --color-stone-dark: #817589;
+  --color-stone-light: #a9b5c3;
+
+  --color-tree-light: #bbdea6;
+  --color-tree-mid: #6dd2aa;
+  --color-tree-dark: #66a0ae;
+
+  --color-sun-light: #d6dbbb;
+  --color-sun-dark: #9a962a;
+
+  --color-brick: #997a82;
+  --color-brick-border: #34161e;
+
+  --color-ash: #553b2e;
+  --color-ember: #9d6a35;
+  --color-cinder: #8d4827;
+
+  --color-wood-stone: #333439;
+  --color-wood-dark: #503227;
+  --color-wood-life: #97691e;
+
+  --color-phantasm: #6fd7fe;
+  --color-phantasm-dark: #499bd3;
+  --color-ectoplasm: #b67bbd;
+
+  --gradient-1: #450003;
+  --gradient-2: #771100;
+  --my-gradient:  repeating-linear-gradient(
+  90deg,
+  var(--gradient-2),
+  var(--gradient-1) 10%,
+  var(--gradient-2),
+  var(--gradient-2) 50%,
+  var(--gradient-2),
+  var(--gradient-1) 90%,
+  var(--gradient-2));
+
+  --radial-red-whack: repeating-radial-gradient(
+  circle at 50% -30%, var(--color-red-dark), var(--color-red-light) 10px);
+
+  --phantom-echo: repeating-radial-gradient(
+  circle at 50% -30%, var(--color-phantasm), var(--color-ectoplasm) 10px);
+
+}
