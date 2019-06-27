@@ -1,4 +1,3 @@
-// Variables for Fancy
 :root {
   // Site Variables
   --color-primary: #05E4E8;
@@ -11,20 +10,21 @@
   --tube-glow-color: #32f587;
   --tube-font-size: 100px;
 
-  // Global Nixie Tube Variables
-  --nixie-back: #000;
-  --nixie-off: rgba(50, 50, 50, 0.15);
-  --nixie-shadow: 0 0 60px;
-  --nixie-font-size: 20vw;
-  --nixie-font: "Lato", sans-serif;
+  // Global fancy Tube Variables
+  --fancy-back: #000;
+  --fancy-off: rgba(50, 50, 50, 0.15);
+  --fancy-shadow: 0px 0px 6px;
+  --fancy-font-size: 10vw;
+  --fancy-font: "Lato", sans-serif;
 
   // Logo Letter Variables
-  --nixie-text-color: #05E4E8;
-  --nixie-text-glow: #424DA6;
+  --fancy-text-color: #05E4E8;
+  --fancy-text-glow: #424DA6;
 
   // Logo Number Variables
-  --nixie-num-color: #FF9F26;
-  --nixie-num-glow: #E83123;
+  --fancy-num-color: #FF9F26;
+  --fancy-num-glow: #E83123;
+
 }
 // Variables from Solace
 :root {
@@ -93,4 +93,54 @@
   --phantom-echo: repeating-radial-gradient(
   circle at 50% -30%, var(--color-phantasm), var(--color-ectoplasm) 10px);
 
+}
+
+html {
+  background: #000 !important;
+}
+.phantom-echo {
+  background: var(--phantom-echo);
+  filter: blur(5px);
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: opacity 0.1s;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+
+.white-glass {
+  background: white;
+  filter: blur(5px);
+  opacity: 0.6;
+  position: absolute;
+  width: 600px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  transition: opacity 0.1s;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.black-glass {
+  background: black;
+  filter: blur(5px);
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  transition: opacity 0.1s;
 }

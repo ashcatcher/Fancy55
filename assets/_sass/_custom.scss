@@ -40,3 +40,95 @@ body {
   background-size: cover;
 }
 */
+
+// Fancy55 Logo SASS
+.fancy {
+  display: flex;
+  color: var(--fancy-off);
+  font-size: var(--fancy-font-size);
+  font-family: var(--fancy-font);
+
+  &--tube, &--digit {
+    display: flex;
+    justify-content: center;
+    width: calc(0.6 * var(--fancy-font-size));
+    height: calc(1.5 * var(--fancy-font-size));
+
+    &--element {
+      position: absolute;
+      transition: 0.3s ease color, 0.3s ease text-shadow;
+    }
+  }
+
+  &--tube {
+    &--element {
+      &--active {
+        color: var(--color-primary);
+        text-shadow: 0px 0px 6px var(--color-primary-glow);
+        transition: 0.3s ease color, 0.3s ease text-shadow;
+      }
+    }
+  }
+
+  &--digit {
+    &--element {
+      &--active {
+        color: var(--color-secondary);
+        text-shadow: 0 0 60px var(--color-secondary-glow);
+        transition: 0.3s ease color, 0.3s ease text-shadow;
+      }
+    }
+  }
+}
+
+// Original Nixie Clock
+.clock {
+  color: rgba(50, 50, 50, 0.35);
+  display: flex;
+  margin: 20vh auto;
+  text-align: center;
+  background: #191919;
+  justify-content: center;
+  align-items: center;
+  line-height: initial;
+  font-size: var(--tube-font-size);
+  font-family: "Lato", sans-serif;
+  padding: 0;
+
+  p.separator {
+    font-size: calc(0.6 * var(--tube-font-size));
+    vertical-align: top;
+    line-height: initial;
+    color: var(--tube-text-color);
+    text-shadow: 0 0 6px var(--tube-glow-color);
+  }
+
+  section {
+    display: flex;
+
+    div {
+      width: calc(0.6 * var(--tube-font-size));
+      height: calc(1 * var(--tube-font-size));
+      display: flex;
+      align-items: center;
+
+      p {
+        position: absolute;
+        transition: 0.3s ease color, 0.3s ease text-shadow;
+        margin: 0;
+
+        &.active {
+          color: var(--tube-text-color);
+          text-shadow: 0 0 6px var(--tube-glow-color);
+        }
+      }
+    }
+  }
+}
+p.separator {
+  font-size: calc(0.6 * var(--tube-font-size));
+  vertical-align: top;
+  line-height: initial;
+  color: var(--tube-text-color);
+  text-shadow: 0 0 6px var(--tube-glow-color);
+}
