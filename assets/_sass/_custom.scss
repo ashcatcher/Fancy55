@@ -132,3 +132,29 @@ p.separator {
   color: var(--tube-text-color);
   text-shadow: 0 0 6px var(--tube-glow-color);
 }
+
+#trap-door {
+  height: 30vh;
+  width: 100%;
+}
+.trap-card {
+  width: calc(3.7 * var(--fancy-font-size));
+  input {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--color-primary-glow);
+    background-color: black;
+    color: var(--color-secondary);
+    &::placeholder {
+      color: var(--color-primary);
+    }
+  }
+  button {
+    border-radius: 8px;
+
+  }
+}
+
+::placeholder {
+  color: cyan;
+}
