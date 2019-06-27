@@ -1,46 +1,34 @@
-{% assign capital_letters= "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z" |
-split: ' ' %}
-{% assign small_letters= "a b c d e f g h i j k l m n o p q r s t u v w x y z"
+{% assign alphabet= "a b c d e f g h i j k l m n o p q r s t u v w x y z"
 | split: ' ' %}
 
-<header>
+<div class="container">
   <div class="nixie">
-    {% comment %}
     <span class="nixie--tube">
-      {% for capital_letter in capital_letters %}
-        <span class="nixie--tube--element">{{capital_letter}}</span>
+      {% for letter in alphabet %}
+        <span class="nixie--tube--element">{{letter}}</span>
       {% endfor %}
     </span>
-    {% endcomment %}
     <span class="nixie--tube">
-      {% for small_letter in small_letters %}
-        <span class="nixie--tube--element">{{small_letter}}</span>
-      {% endfor %}
-    </span>
-
-
-
-    <span class="nixie--tube">
-      {% for small_letter in small_letters %}
-        <span class="nixie--tube--element">{{small_letter}}</span>
+      {% for letter in alphabet %}
+        <span class="nixie--tube--element">{{letter}}</span>
       {% endfor %}
     </span>
 
     <span class="nixie--tube">
-      {% for small_letter in small_letters %}
-        <span class="nixie--tube--element">{{small_letter}}</span>
+      {% for letter in alphabet %}
+        <span class="nixie--tube--element">{{letter}}</span>
       {% endfor %}
     </span>
 
     <span class="nixie--tube">
-      {% for small_letter in small_letters %}
-        <span class="nixie--tube--element">{{small_letter}}</span>
+      {% for letter in alphabet %}
+        <span class="nixie--tube--element">{{letter}}</span>
       {% endfor %}
     </span>
 
     <span class="nixie--tube">
-      {% for small_letter in small_letters %}
-        <span class="nixie--tube--element">{{small_letter}}</span>
+      {% for letter in alphabet %}
+        <span class="nixie--tube--element">{{letter}}</span>
       {% endfor %}
     </span>
 
@@ -57,7 +45,7 @@ split: ' ' %}
     </span>
 
   </div>
-</header>
+</div>
 
 <script>
   function turnOffDisplay() {

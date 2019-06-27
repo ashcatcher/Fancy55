@@ -62,5 +62,8 @@
     "webpack": "^4.29.5",
     "webpack-stream": "^5.0.0",
     "yargs": "^12.0.1"
+  },
+  "dependencies": {
+    "spectre.css": "^0.5.8"
   }
 }
