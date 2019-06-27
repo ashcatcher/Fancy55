@@ -1,55 +1,32 @@
-{% assign alphabet= "a b c d e f g h i j k l m n o p q r s t u v w x y z"
-| split: ' ' %}
+{% assign alphabet= "a b c d e f g h i j k l m n o p q r s t u v w x y z" | split: ' ' %}
+{% assign numerology= "1 2 3 4 5 6 7 8 9 0 ! @ # $ % ^ & * , . ` ~ = + -" |
+split: ' ' %}
 
 <div class="container">
-  <div class="nixie">
-    <span class="nixie--tube">
-      {% for letter in alphabet %}
-        <span class="nixie--tube--element">{{letter}}</span>
-      {% endfor %}
-    </span>
-    <span class="nixie--tube">
-      {% for letter in alphabet %}
-        <span class="nixie--tube--element">{{letter}}</span>
-      {% endfor %}
-    </span>
+  <div class="fancy">
 
-    <span class="nixie--tube">
-      {% for letter in alphabet %}
-        <span class="nixie--tube--element">{{letter}}</span>
-      {% endfor %}
-    </span>
+    {% for i in (1..5) %}
+      <span class="fancy--tube">
+        {% for letter in alphabet %}
+          <span class="fancy--tube--element">{{letter}}</span>
+        {% endfor %}
+      </span>
+    {% endfor %}
 
-    <span class="nixie--tube">
-      {% for letter in alphabet %}
-        <span class="nixie--tube--element">{{letter}}</span>
-      {% endfor %}
-    </span>
-
-    <span class="nixie--tube">
-      {% for letter in alphabet %}
-        <span class="nixie--tube--element">{{letter}}</span>
-      {% endfor %}
-    </span>
-
-    <span class="nixie--digit">
-      {% for i in (0..9) %}
-        <span class="nixie--digit--element">{{i}}</span>
-      {% endfor %}
-    </span>
-
-    <span class="nixie--digit">
-      {% for i in (0..9) %}
-        <span class="nixie--digit--element">{{i}}</span>
-      {% endfor %}
-    </span>
+    {% for i in (1..2) %}
+      <span class="fancy--digit">
+        {% for i in (0..9) %}
+          <span class="fancy--digit--element">{{i}}</span>
+        {% endfor %}
+      </span>
+    {% endfor %}
 
   </div>
 </div>
 
 <script>
   function turnOffDisplay() {
-    $('.nixie--tube--element--active').removeClass('nixie--tube--element--active');
+    $('.fancy--tube--element--active').removeClass('--tube--element--active');
   }
   function isBetween(n, a, b) {
     return (n - a) * (n - b) <= 0;
@@ -67,34 +44,32 @@
 
   const render = function renderDisplay(string) {
     turnOffDisplay();
-    const tubes = document.getElementsByClassName("nixie--tube");
+    const tubes = document.getElementsByClassName("fancy--tube");
     for (let i = 0; i < string.length; i += 1) {
       const code = isAlphabet(string.charCodeAt(i));
       const children = tubes[i].children;
-      children[code].classList.add("nixie--tube--element--active");
+      children[code].classList.add("fancy--tube--element--active");
     }
   };
 
-  const input = "Fancy";
+  const input = "fancy";
 
   window.addEventListener("load", render(input));
 </script>
 
 <script>
   function turnOffDigits() {
-    $('.nixie--digit--element--active').removeClass('nixie--digit--element--active');
+    $('.fancy--digit--element--active').removeClass('fancy--digit--element--active');
   }
-
   const fancy55 = function renderDigits(string) {
     turnOffDigits();
-    const tubes = document.getElementsByClassName("nixie--digit");
+    const tubes = document.getElementsByClassName("fancy--digit");
     for (let i = 0; i < string.length; i += 1) {
       const int = parseInt(string[i]);
       const children = tubes[i].children;
-      children[int].classList.add("nixie--digit--element--active");
+      children[int].classList.add("fancy--digit--element--active");
     }
   }
-
   const twodigits = "55";
   window.addEventListener("load", fancy55(twodigits));
 </script>
