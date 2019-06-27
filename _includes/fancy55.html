@@ -27,6 +27,7 @@ split: ' ' %}
 <script>
   function turnOffDisplay() {
     $('.fancy--tube--element--active').removeClass('--tube--element--active');
+    $('.fancy--digit--element--active').removeClass('fancy--digit--element--active');
   }
   function isBetween(n, a, b) {
     return (n - a) * (n - b) <= 0;
@@ -55,9 +56,7 @@ split: ' ' %}
   const input = "fancy";
 
   window.addEventListener("load", render(input));
-</script>
 
-<script>
   function turnOffDigits() {
     $('.fancy--digit--element--active').removeClass('fancy--digit--element--active');
   }
