@@ -3,14 +3,22 @@ split: ' ' %}
 {% assign small_letters= "a b c d e f g h i j k l m n o p q r s t u v w x y z"
 | split: ' ' %}
 
-<header class="header" style="position: relative; top: 150px;">
-    <div class="black-glass"></div>
+<header>
   <div class="nixie">
+    {% comment %}
     <span class="nixie--tube">
       {% for capital_letter in capital_letters %}
         <span class="nixie--tube--element">{{capital_letter}}</span>
       {% endfor %}
     </span>
+    {% endcomment %}
+    <span class="nixie--tube">
+      {% for small_letter in small_letters %}
+        <span class="nixie--tube--element">{{small_letter}}</span>
+      {% endfor %}
+    </span>
+
+
 
     <span class="nixie--tube">
       {% for small_letter in small_letters %}

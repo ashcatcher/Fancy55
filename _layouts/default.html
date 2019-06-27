@@ -1,37 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-
   {%- include head.html -%}
-
   <body>
     <div>
       {% include fancy55.html %}
-
-      <div style="display: flex; flex-direction: column; justify-content: center;
-        position: relative; top: 100px;">
-        <nav style="display: flex; justify-content: space-between; max-width:
-          600px;">
-          <span class="a-button">
-            <div class="white-glass"></div>
-            <button>About</button>
-          </span>
-          <span class="a-button">
-            <div class="white-glass"></div>
-            <button>Contact</button>
-          </span>
-        </nav>
-      </div>
     </div>
-    {% comment %}
-    {%- include header.html -%}
-    {% endcomment %}
-
     {{ content }}
-
-    {% comment %}
-    {%- include footer.html -%}
-    {% endcomment %}
-
   </body>
-
 </html>
