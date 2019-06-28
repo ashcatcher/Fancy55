@@ -145,12 +145,14 @@ p.separator {
     border: 1px solid var(--color-primary-glow);
     background-color: black;
     color: var(--color-secondary);
+    font-family: var(--fancy-font);
     &::placeholder {
       color: var(--color-primary);
     }
   }
   button {
     border-radius: 8px;
+    border-color: var(--color-primary-glow);
 
   }
 }
