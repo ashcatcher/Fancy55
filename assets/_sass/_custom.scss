@@ -146,6 +146,7 @@ p.separator {
     background-color: black;
     color: var(--color-secondary);
     font-family: var(--fancy-font);
+    float: left;
     &::placeholder {
       color: var(--color-primary);
     }
@@ -153,6 +154,8 @@ p.separator {
   button {
     border-radius: 8px;
     border-color: var(--color-primary-glow);
+    margin: 10px;
+    float: left;
 
   }
 }
