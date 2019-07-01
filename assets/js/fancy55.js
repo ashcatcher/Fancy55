@@ -1,5 +1,5 @@
 $(document).ready(function() {
-function turnOffDisplay() {
+  function turnOffDisplay() {
     $('.fancy--tube--element--active').removeClass('--tube--element--active');
     $('.fancy--digit--element--active').removeClass('fancy--digit--element--active');
   }
@@ -16,6 +16,10 @@ function turnOffDisplay() {
     }
     return 5;
   }
+  function turnOffDigits() {
+    $('.fancy--digit--element--active').removeClass('fancy--digit--element--active');
+  }
+
 
   const render = function renderDisplay(string) {
     turnOffDisplay();
@@ -31,9 +35,6 @@ function turnOffDisplay() {
 
   window.addEventListener("load", render(input));
 
-  function turnOffDigits() {
-    $('.fancy--digit--element--active').removeClass('fancy--digit--element--active');
-  }
   const fancy55 = function renderDigits(string) {
     turnOffDigits();
     const tubes = document.getElementsByClassName("fancy--digit");
@@ -45,4 +46,24 @@ function turnOffDisplay() {
   }
   const twodigits = "55";
   window.addEventListener("load", fancy55(twodigits));
-})();
+});
+
+$(document).ready(function() {
+  $('#inspire').on('submit', function(e){
+    if(!valid) {
+      e.preventDefault();
+      alert('test function1');
+    }
+  });
+  $('#inspire').keypress(function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+      alert('test enter code');
+      event.preventDefault();
+    }
+  });
+});
+$("#inspire").submit(function(e){
+  e.preventDefault();
+  alert('test function3');
+});
