@@ -56,20 +56,23 @@ $(document).ready(function() {
       event.preventDefault();
       const data = getFormData('#inspire');
       const get_messages = data.message.split(' ');
-      console.log(get_messages);
-      var delay = 0
+      const message_length = get_messages.length
+      // Sets the reset timer for the logo
+      setTimeout(function(){
+        turnOffDisplay();
+        turnOffDigits();
+        renderDisplay("fancy");
+        renderDigits("55");
+      }, ((message_length * 500) + 1000));
+      // Sets the increment timers for each word in the poem.
       $(get_messages).each(function(index, value) {
-        console.log(index);
-        var delay = index * 500;
-        //window.setTimeout(turnOffDisplay(), delay);
+        var delay = ((index * 500)+250);
         setTimeout(function(){
           turnOffDisplay();
           renderDisplay(value);
-          console.log(value);
-        }, delay);
-        console.log(delay);
+        }, ((index * 500) + 250));
       });
-      //turnOffDisplay();
+      // Resets the form to blank
       $(this).find("input[type=text], textarea").val("");
     };
   });
