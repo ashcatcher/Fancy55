@@ -1,7 +1,6 @@
 $(document).ready(function() {
   function turnOffDisplay() {
     $('.fancy--tube--element--active').removeClass('fancy--tube--element--active');
-    $('.fancy--digit--element--active').removeClass('fancy--digit--element--active');
   }
   function isBetween(n, a, b) {
     return (n - a) * (n - b) <= 0;
@@ -19,9 +18,7 @@ $(document).ready(function() {
   function turnOffDigits() {
     $('.fancy--digit--element--active').removeClass('fancy--digit--element--active');
   }
-
-
-  const render = function renderDisplay(string) {
+  function renderDisplay(string) {
     turnOffDisplay();
     const tubes = document.getElementsByClassName("fancy--tube");
     for (let i = 0; i < string.length; i += 1) {
@@ -31,11 +28,7 @@ $(document).ready(function() {
     }
   };
 
-  const input = "fancy";
-
-  window.addEventListener("load", render(input));
-
-  const fancy55 = function renderDigits(string) {
+  function renderDigits(string) {
     turnOffDigits();
     const tubes = document.getElementsByClassName("fancy--digit");
     for (let i = 0; i < string.length; i += 1) {
@@ -44,8 +37,8 @@ $(document).ready(function() {
       children[int].classList.add("fancy--digit--element--active");
     }
   }
-  const twodigits = "55";
-  window.addEventListener("load", fancy55(twodigits));
+  window.addEventListener("load", renderDisplay("fancy"));
+  window.addEventListener("load", renderDigits("55"));
 
   function getFormData(dom_query){
     var out = {};
@@ -57,22 +50,27 @@ $(document).ready(function() {
     }
     return out;
   }
-
-  $('#inspire').on('submit', function(e){
-    if(!valid) {
-      e.preventDefault();
-      alert('test function1');
-    }
-  });
   $('#inspire').keypress(function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if(keycode == '13'){
       event.preventDefault();
       const data = getFormData('#inspire');
-      console.log(data.message);
-      turnOffDisplay();
+      const get_messages = data.message.split(' ');
+      console.log(get_messages);
+      var delay = 0
+      $(get_messages).each(function(index, value) {
+        console.log(index);
+        var delay = index * 500;
+        //window.setTimeout(turnOffDisplay(), delay);
+        setTimeout(function(){
+          turnOffDisplay();
+          renderDisplay(value);
+          console.log(value);
+        }, delay);
+        console.log(delay);
+      });
+      //turnOffDisplay();
       $(this).find("input[type=text], textarea").val("");
-      render(data.message);
     };
   });
 });
