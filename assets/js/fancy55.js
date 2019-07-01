@@ -1,4 +1,17 @@
 $(document).ready(function() {
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+      sURLVariables = sPageURL.split('&'),
+      sParameterName,
+      i;
+    for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (sParameterName[0] === sParam) {
+        return sParameterName[1] === underfined ? true : decodeURIComponent(sParameterName[1]);
+      }
+    }
+  };
   function turnOffDisplay() {
     $('.fancy--tube--element--active').removeClass('fancy--tube--element--active');
   }
@@ -6,7 +19,7 @@ $(document).ready(function() {
     return (n - a) * (n - b) <= 0;
   }
 
-  function isAlphabet(code) {
+  function isAlphabet(code, index) {
     if (isBetween(code, 65, 90)) {
       return code - 65;
     }
@@ -22,8 +35,9 @@ $(document).ready(function() {
     turnOffDisplay();
     const tubes = document.getElementsByClassName("fancy--tube");
     for (let i = 0; i < string.length; i += 1) {
-      const code = isAlphabet(string.charCodeAt(i));
+      const code = isAlphabet(string.charCodeAt(i), i);
       const children = tubes[i].children;
+      //console.log(children.length);
       children[code].classList.add("fancy--tube--element--active");
     }
   };
@@ -69,7 +83,7 @@ $(document).ready(function() {
         var delay = ((index * 500)+250);
         var first5 = word.substring(0,5);
         var fiftyfive = word.substring(5,7);
-        console.log(fiftyfive);
+        //console.log(fiftyfive);
         setTimeout(function(){
           turnOffDisplay();
           turnOffDigits();
@@ -91,9 +105,10 @@ $(document).ready(function() {
     $(tube_elements).each(function(index, element) {
       output.push($(element).text().charCodeAt(0));
     });
-    console.log(output);
+    //console.log(output);
   };
   tubeRange(0);
+  tubeRange(5);
   tubeRange(1);
 });
 
