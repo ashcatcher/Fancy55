@@ -65,11 +65,16 @@ $(document).ready(function() {
         renderDigits("55");
       }, ((message_length * 500) + 1000));
       // Sets the increment timers for each word in the poem.
-      $(get_messages).each(function(index, value) {
+      $(get_messages).each(function(index, word) {
         var delay = ((index * 500)+250);
+        var first5 = word.substring(0,5);
+        var fiftyfive = word.substring(5,7);
+        console.log(fiftyfive);
         setTimeout(function(){
           turnOffDisplay();
-          renderDisplay(value);
+          turnOffDigits();
+          renderDisplay(first5);
+          renderDigits(fiftyfive);
         }, ((index * 500) + 250));
       });
       // Resets the form to blank
