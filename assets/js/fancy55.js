@@ -76,4 +76,19 @@ $(document).ready(function() {
       $(this).find("input[type=text], textarea").val("");
     };
   });
+  function tubeRange(index) {
+    // Provided with an index number for tube elements on page
+    // IT will return an array containing all text elements they contain
+    output = [];
+    tubes = $('.fancy--tube');
+    tube = tubes[index];
+    tube_elements = $(tube).children()
+    $(tube_elements).each(function(index, element) {
+      output.push($(element).text().charCodeAt(0));
+    });
+    console.log(output);
+  };
+  tubeRange(0);
+  tubeRange(1);
 });
+
