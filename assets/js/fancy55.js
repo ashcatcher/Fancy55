@@ -1,6 +1,6 @@
 $(document).ready(function() {
   function turnOffDisplay() {
-    $('.fancy--tube--element--active').removeClass('--tube--element--active');
+    $('.fancy--tube--element--active').removeClass('fancy--tube--element--active');
     $('.fancy--digit--element--active').removeClass('fancy--digit--element--active');
   }
   function isBetween(n, a, b) {
@@ -46,20 +46,18 @@ $(document).ready(function() {
   }
   const twodigits = "55";
   window.addEventListener("load", fancy55(twodigits));
-});
 
-function getFormData(dom_query){
+  function getFormData(dom_query){
     var out = {};
     var s_data = $(dom_query).serializeArray();
     //transform into simple data/value object
     for(var i = 0; i<s_data.length; i++){
-        var record = s_data[i];
-        out[record.name] = record.value;
+      var record = s_data[i];
+      out[record.name] = record.value;
     }
     return out;
-}
+  }
 
-$(document).ready(function() {
   $('#inspire').on('submit', function(e){
     if(!valid) {
       e.preventDefault();
@@ -69,13 +67,12 @@ $(document).ready(function() {
   $('#inspire').keypress(function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if(keycode == '13'){
-      alert('test enter code');
       event.preventDefault();
-      console.log(getFormData('#inspire'));
-      };
+      const data = getFormData('#inspire');
+      console.log(data.message);
+      turnOffDisplay();
+      $(this).find("input[type=text], textarea").val("");
+      render(data.message);
+    };
   });
-});
-$("#inspire").submit(function(e){
-  e.preventDefault();
-  alert('test function3');
 });
