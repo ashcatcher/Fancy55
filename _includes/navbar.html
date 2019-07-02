@@ -1,34 +1,17 @@
-<header class="navbar">
-  <section class="navbar-section">
-    <div class="dropdown">
-      <a href="#" class="navbar-brand mr-2 btn btn-link dropdown-toggle"
-                  tabindex="0">
-        Directory<i class="icon icon-caret"></i>
-      </a>
-      <ul class="menu">
-        {% for item in site.data.nav %}
-          <li class="menu-item">
-            <a href="{{item.permalink}}">{{item.title}}</a>
-          </li>
-        {% endfor %}
-      </ul>
+<div class="container">
+  <form class=" trap-card form-horizontal" id="inspire">
+    <div class="input-group">
+      <input class="form-input formic" type="text"
+                                       id="trap-card-1"
+                                       name="message"
+                                       placeholder="Say Somethign!?">
+      <button class="btn btn-primary input-group-btn" style="float: right;">Submit</button>
     </div>
-  </section>
-  <section class="navbar-section">
-    <div class="input-inline">
-      <form class="form-group trap-card form-horizontal" id="inspire">
-        <input class="form-input form-inline formic col-10" type="text"
-                                                            id="trap-card-1"
-                                                            name="message"
-                                                            placeholder="Say Somethign!?">
-        <div class="form-group">
-          <label class="form-switch">
-            <input type="checkbox">
-            <i class="form-icon"></i>Advanced
-          </label>
-        </div>
-      </form>
+    <div class="form-group form-horizontal">
+      <label class="form-switch">
+        <input type="checkbox">
+        <i class="form-icon"></i>Advanced
+      </label>
     </div>
-  </section>
-</header>
-
+  </form>
+</div>
