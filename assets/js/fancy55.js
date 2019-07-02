@@ -118,4 +118,11 @@ $(document).ready(function() {
   tubeRange(5);
   tubeRange(1);
 });
+$(document).ready(function() {
+  $('#colour-toggle').change(function() {
+    $('.colour').each(function(index, element) {
+      $(element).toggle();
+    });
+  });
+});
 
