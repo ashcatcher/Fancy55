@@ -8,33 +8,7 @@
         {% include fancy55.html %}
       </div>
       <div class="container" style="justify-content: center;">
-        <header class="navbar">
-          <section class="navbar-section">
-            <a href="#" class="navbar-brand mr-2">
-              {% if page.title %}
-                {{page.title}}
-              {% else %}
-                {{site.title}}
-              {% endif %}
-            </a>
-          </section>
-          <section class="navbar-section">
-            <div class="input-inline">
-              <form class="form-group trap-card form-horizontal" id="inspire">
-                <input class="form-input form-inline formic col-10" type="text"
-                                                                    id="trap-card-1"
-                                                                    name="message"
-                                                                    placeholder="Say Somethign!?">
-                <div class="form-group">
-                  <label class="form-switch">
-                    <input type="checkbox">
-                    <i class="form-icon"></i>Advanced
-                  </label>
-                </div>
-              </form>
-            </div>
-          </section>
-        </header>
+        {% include navbar.html %}
       </div>
     </div>
     {{ content }}

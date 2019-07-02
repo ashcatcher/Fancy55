@@ -1,0 +1,13 @@
+- title: Home
+  permalink: '/'
+  disabled: no
+- title: About
+  permalink: '/about'
+  disabled: yes
+- title: Portfolio
+  permalink: '/portfolio'
+  disabled: yes
+- title: Contact
+  permalink: '/contact'
+  disabled: yes
+
