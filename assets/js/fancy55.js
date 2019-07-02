@@ -126,6 +126,8 @@ $(document).ready(function() {
     $('.colour').each(function(index, element) {
       $(element).toggle();
     });
+    $('.invert').toggle();
+    $('.reset').toggle();
   });
 });
 

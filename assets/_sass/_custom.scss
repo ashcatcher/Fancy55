@@ -142,6 +142,11 @@ p.separator {
   padding: .4rem 0;
   margin-bottom: .4rem;
 }
+.reset {
+  padding: 0 0 0 0;
+  width: 100%;
+}
+
 .trap-card {
   width: calc(3.7 * var(--fancy-font-size));
   input {
