@@ -64,36 +64,43 @@ $(document).ready(function() {
     }
     return out;
   }
-  $('#inspire').keypress(function(event){
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if(keycode == '13'){
-      event.preventDefault();
-      const data = getFormData('#inspire');
-      const get_messages = data.message.split(' ');
-      const message_length = get_messages.length
-      // Sets the reset timer for the logo
+  function homeFormHandler(event){
+    event.preventDefault();
+    const data = getFormData('#inspire');
+    const get_messages = data.message.split(' ');
+    const message_length = get_messages.length
+    // Sets the reset timer for the logo
+    setTimeout(function(){
+      turnOffDisplay();
+      turnOffDigits();
+      renderDisplay("fancy");
+      renderDigits("55");
+    }, ((message_length * 500) + 1000));
+    // Sets the increment timers for each word in the poem.
+    $(get_messages).each(function(index, word) {
+      var delay = ((index * 500)+250);
+      var first5 = word.substring(0,5);
+      var fiftyfive = word.substring(5,7);
+      //console.log(fiftyfive);
       setTimeout(function(){
         turnOffDisplay();
         turnOffDigits();
-        renderDisplay("fancy");
-        renderDigits("55");
-      }, ((message_length * 500) + 1000));
-      // Sets the increment timers for each word in the poem.
-      $(get_messages).each(function(index, word) {
-        var delay = ((index * 500)+250);
-        var first5 = word.substring(0,5);
-        var fiftyfive = word.substring(5,7);
-        //console.log(fiftyfive);
-        setTimeout(function(){
-          turnOffDisplay();
-          turnOffDigits();
-          renderDisplay(first5);
-          renderDigits(fiftyfive);
-        }, ((index * 500) + 250));
-      });
-      // Resets the form to blank
-      $(this).find("input[type=text], textarea").val("");
+        renderDisplay(first5);
+        renderDigits(fiftyfive);
+      }, ((index * 500) + 250));
+    });
+    // Resets the form to blank
+    $('#inspire').find("input[type=text], textarea").val("");
+  };
+
+  $('#inspire').keypress(function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+      homeFormHandler(event);
     };
+  });
+  $('#inspire').submit(function(event){
+    homeFormHandler(event);
   });
   function tubeRange(index) {
     // Provided with an index number for tube elements on page
