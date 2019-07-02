@@ -1,3 +1,5 @@
+---
+---
 $(document).ready(function() {
   var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
@@ -131,20 +133,15 @@ $(document).ready(function() {
   });
 });
 
+// Reset button functionality to return to default color scheme
 $(document).ready(function() {
-  var bodyStyles = window.getComputedStyle(document.body);
-  var primaryColour = bodyStyles.getPropertyValue('--color-primary');
-  var primaryColourGlow = bodyStyles.getPropertyValue('--color-primary-glow');
-  var secondaryColour = bodyStyles.getPropertyValue('--color-secondary');
-  var secondaryColourGlow = bodyStyles.getPropertyValue('--color-secondary-glow');
+});
 
-  var colourPicker = $('input[type=color]');
-
-  console.log($('input[type=color]'));
-  // Setter for the colour picker defaults
-
-  // Gets div#colours, and iterates over the children to define each.
-  $('#colours').children().each(function(index, colour) {
-    console.log(colour);
+// Dynamically updates colour schemes when colour pickers are modified
+$(document).ready(function() {
+  var colorInputs = $('input[type=color]');
+  $(colorInputs).on('input propertychange', function() {
+    var vCSS = "--" + $(this).attr('id');
+    document.body.style.setProperty(vCSS, this.value);
   });
 });
