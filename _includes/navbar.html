@@ -18,18 +18,21 @@
         </div>
       </div>
       <div class="column col-3 colour" style="display: none;">
-        <label class="form-label" for="colour-1">Colour 1</label>
-        <label class="form-label" for="colour-2">Colour 2</label>
-        <label class="form-label" for="colour-3">Colour 3</label>
-        <label class="form-label" for="colour-4">Colour 4</label>
+        <label class="form-label" for="color-primary">Primary Colour</label>
+        <label class="form-label" for="color-primary-glow">Primary Glow Colour</label>
+        <label class="form-label" for="color-secondary">Secondary Colour</label>
+        <label class="form-label" for="color-secondary-glow">Secondary Glow Colour</label>
       </div>
       <div class="column col-6 colour" style="display: none;">
-        <div class="form-group form-horizontal">
-          <input id="colour-1" class="form-input" type="color" value="#555555">
-          <input id="colour-2" class="form-input" type="color" value="#0f0f0f">
-          <input id="colour-3" class="form-input" type="color" value="#ff0ff0">
-          <input id="colour-4" class="form-input" type="color" value="#0ff0ff">
-
+        <div class="form-group form-horizontal colours">
+          <input id="color-primary" class="form-input" type="color"
+                                                       value="{{site.primary}}">
+          <input id="color-primary-glow" class="form-input" type="color"
+                                                            value="{{site.color.primary-glow}}">
+          <input id="color-secondary" class="form-input" type="color"
+                                                         value="{{site.color.secondary}}">
+          <input id="color-secondary-glow" class="form-input" type="color"
+                                                              value="{{site.color.secondary-glow}}">
         </div>
       </div>
     </div>

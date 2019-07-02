@@ -1,0 +1,14 @@
+<div class="dropdown">
+  <a href="#" class="navbar-brand mr-2 btn btn-link dropdown-toggle"
+              tabindex="0">
+    Directory<i class="icon icon-caret"></i>
+  </a>
+  <ul class="menu">
+    {% for item in site.data.nav %}
+      <li class="menu-item">
+        <a href="{{item.permalink}}">{{item.title}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+

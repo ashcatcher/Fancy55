@@ -137,6 +137,11 @@ p.separator {
   height: 30vh;
   width: 100%;
 }
+
+.form-label {
+  padding: .4rem 0;
+  margin-bottom: .4rem;
+}
 .trap-card {
   width: calc(3.7 * var(--fancy-font-size));
   input {

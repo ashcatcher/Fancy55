@@ -1,12 +1,22 @@
 title: 'Fancy55'
 email: ryan@fancy55.com
 description: >
-  Ryan
+  Ryan Horricks
 
 baseurl: '' # the subpath of your site, e.g. /blog
 url: '' # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: # ginfuru
 github_username: # ginfuru
+
+color:
+  - title: primary
+    hex:  '#05E4E8'
+    glow: '#424da6'
+  - title: secondary
+    hex:  '#ff9f26'
+    glow: '#e83123'
+  - title: accent
+    hex:  '#E757FF'
 
 # SEO
 #image: # /assets/images/open_graph_image.png
@@ -20,9 +30,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
+    # Exclude from processing.
+    # The following items will not be processed, by default. Create a custom list
+    # to override the default setting.
 exclude:
   - flightdeck.manifest.js
   - Gemfile

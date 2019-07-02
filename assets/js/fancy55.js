@@ -118,7 +118,10 @@ $(document).ready(function() {
   tubeRange(5);
   tubeRange(1);
 });
+// Toggles the advanced mode display on, for changing site colour scheme
 $(document).ready(function() {
+  $('#colour-toggle').val(this.checked);
+  //console.log($('#colour-toggle').val(this.checked))
   $('#colour-toggle').change(function() {
     $('.colour').each(function(index, element) {
       $(element).toggle();
@@ -126,3 +129,20 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+  var bodyStyles = window.getComputedStyle(document.body);
+  var primaryColour = bodyStyles.getPropertyValue('--color-primary');
+  var primaryColourGlow = bodyStyles.getPropertyValue('--color-primary-glow');
+  var secondaryColour = bodyStyles.getPropertyValue('--color-secondary');
+  var secondaryColourGlow = bodyStyles.getPropertyValue('--color-secondary-glow');
+
+  var colourPicker = $('input[type=color]');
+
+  console.log($('input[type=color]'));
+  // Setter for the colour picker defaults
+
+  // Gets div#colours, and iterates over the children to define each.
+  $('#colours').children().each(function(index, colour) {
+    console.log(colour);
+  });
+});
