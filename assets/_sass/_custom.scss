@@ -144,7 +144,11 @@ p.separator {
 }
 .reset {
   padding: 0 0 0 0;
-  width: 100%;
+  //width: 100%;
+  margin-bottom: auto;
+  button.reset-btn {
+    margin: 0;
+  }
 }
 
 .trap-card {
