@@ -21,6 +21,8 @@ $(document).ready(function() {
     return (n - a) * (n - b) <= 0;
   }
 
+
+
   function isAlphabet(code, index) {
     if (isBetween(code, 65, 90)) {
       return code - 65;
@@ -39,7 +41,6 @@ $(document).ready(function() {
     for (let i = 0; i < string.length; i += 1) {
       const code = isAlphabet(string.charCodeAt(i), i);
       const children = tubes[i].children;
-      //console.log(children.length);
       children[code].classList.add("fancy--tube--element--active");
     }
   };
@@ -83,7 +84,6 @@ $(document).ready(function() {
       var delay = ((index * 500)+250);
       var first5 = word.substring(0,5);
       var fiftyfive = word.substring(5,7);
-      //console.log(fiftyfive);
       setTimeout(function(){
         turnOffDisplay();
         turnOffDigits();
@@ -114,16 +114,16 @@ $(document).ready(function() {
     $(tube_elements).each(function(index, element) {
       output.push($(element).text().charCodeAt(0));
     });
-    //console.log(output);
   };
   tubeRange(0);
   tubeRange(5);
   tubeRange(1);
 });
+// Javascripts for the Advanced menu live here.
+
 // Toggles the advanced mode display on, for changing site colour scheme
 $(document).ready(function() {
   $('#colour-toggle').val(this.checked);
-  console.log($('#colour-toggle').val(this.checked))
   $('#colour-toggle').change(function() {
     $('.colour').each(function(index, element) {
       $(element).toggleClass('hidden');
@@ -131,27 +131,162 @@ $(document).ready(function() {
     $('.invert').toggleClass('hidden');
     $('.reset').toggleClass('hidden');
   });
-});
 
-// Reset button functionality to return to default color scheme
-$(document).ready(function() {
-  var primary = "{{site.color[0].hex}}";
-  var primaryGlow = "{{site.color[0].glow}}";
-  var secondary = "{{site.color[1].hex}}";
-  var secondaryGlow = "{{site.color[1].glow}}";
-  var accent = "{{site.color[2].hex}}";
-  console.log(primaryGlow);
-  console.log(primary);
-  console.log(secondary);
-  console.log(secondaryGlow);
-  console.log(accent);
-});
-
-// Dynamically updates colour schemes when colour pickers are modified
-$(document).ready(function() {
+  function varGetterCSS(variable) {
+    return getComputedStyle(document.documentElement).getPropertyValue(variable);
+  }
+  function varSetterCSS(variable, value) {
+    document.documentElement.style.setProperty(variable, value);
+  }
   var colorInputs = $('input[type=color]');
+
   $(colorInputs).on('input propertychange', function() {
     var vCSS = "--" + $(this).attr('id');
     document.body.style.setProperty(vCSS, this.value);
+  });
+
+  // Invert Primary and Secondary Colours.
+  var varPrimary = "--color-primary";
+  var varPrimaryGlow = "--color-primary-glow";
+  var varSecondary = "--color-secondary";
+  var varSecondaryGlow = "--color-secondary-glow";
+  var varAccent = "--color-accent";
+
+  var primaryD = "{{site.color[0].hex}}";
+  var primaryGlowD = "{{site.color[0].glow}}";
+  var secondaryD = "{{site.color[1].hex}}";
+  var secondaryGlowD = "{{site.color[1].glow}}";
+  var accentD = "{{site.color[2].hex}}";
+
+  const defaultStyle = {
+    primary: {
+      name: "{{site.color[0].title}}",
+      hex: "{{site.color[0].hex}}",
+      var: function() {
+        return ("--color-" + this.name)}
+    },
+    glowprimary: {
+      name: ("{{site.color[0].title}}" + "-glow"),
+      hex: "{{site.color[0].glow}}",
+      var: function() {
+        return ("--color-" + this.name)}
+    },
+    secondary: {
+      name: "{{site.color[1].title}}",
+      hex: "{{site.color[1].hex}}",
+      var: function() {
+        return ("--color-" + this.name)}
+    },
+    glowsecondary: {
+      name: ("{{site.color[1].title}}"+ "-glow"),
+      hex: "{{site.color[1].glow}}",
+      var: function() {
+        return ("--color-" + this.name)}
+    },
+    accent: {
+      name: "{{site.color[2].title}}",
+      hex: "{{site.color[2].hex}}",
+      var: function() {
+        return ("--color-" + this.name)}
+    }
+  }
+  function invert() {
+    primary = varGetterCSS(defaultStyles.primary.var());
+    console.log(primary);
+    secondary = varGetterCSS(defaultStyles.secondary.var());
+    console.log(secondary);
+    varSetterCSS(defaultStyles.primary.var(), defaultStyles.secondary.hex);
+    varSetterCSS(defaultStyles.secondary.var(), defaultStyles.primary.hex);
+
+    gPrimary = varGetterCSS(defaultStyles.glowprimary.var());
+    gSecondary = varGetterCSS(defaultStyles.glowsecondary.var());
+    varSetterCSS(defaultStyles.glowprimary.var(), gSecondary);
+    varSetterCSS(defaultStyles.glowsecondary.var(), gPrimary);
+  };
+
+  $('#invert').change(function() {
+    const defaultStyles = {
+      primary: {
+        name: "{{site.color[0].title}}",
+        hex: "{{site.color[0].hex}}",
+        var: function() {
+          return ("--color-" + this.name)}
+      },
+      glowprimary: {
+        name: ("{{site.color[0].title}}" + "-glow"),
+        hex: "{{site.color[0].glow}}",
+        var: function() {
+          return ("--color-" + this.name)}
+      },
+      secondary: {
+        name: "{{site.color[1].title}}",
+        hex: "{{site.color[1].hex}}",
+        var: function() {
+          return ("--color-" + this.name)}
+      },
+      glowsecondary: {
+        name: ("{{site.color[1].title}}"+ "-glow"),
+        hex: "{{site.color[1].glow}}",
+        var: function() {
+          return ("--color-" + this.name)}
+      },
+      accent: {
+        name: "{{site.color[2].title}}",
+        hex: "{{site.color[2].hex}}",
+        var: function() {
+          return ("--color-" + this.name)}
+      }
+    }
+    primary = varGetterCSS(defaultStyles.primary.var());
+    secondary = varGetterCSS(defaultStyles.secondary.var());
+    varSetterCSS(defaultStyles.primary.var(), secondary);
+    varSetterCSS(defaultStyles.secondary.var(), primary);
+
+    gPrimary = varGetterCSS(defaultStyles.glowprimary.var());
+    gSecondary = varGetterCSS(defaultStyles.glowsecondary.var());
+    varSetterCSS(defaultStyles.glowprimary.var(), gSecondary);
+    varSetterCSS(defaultStyles.glowsecondary.var(), gPrimary);
+  });
+
+  $('#reset').click(function(event) {
+    const defaultStyles = {
+      primary: {
+        name: "{{site.color[0].title}}",
+        hex: "{{site.color[0].hex}}",
+        var: function() {
+          return ("--color-" + this.name)}
+      },
+      glowprimary: {
+        name: ("{{site.color[0].title}}" + "-glow"),
+        hex: "{{site.color[0].glow}}",
+        var: function() {
+          return ("--color-" + this.name)}
+      },
+      secondary: {
+        name: "{{site.color[1].title}}",
+        hex: "{{site.color[1].hex}}",
+        var: function() {
+          return ("--color-" + this.name)}
+      },
+      glowsecondary: {
+        name: ("{{site.color[1].title}}"+ "-glow"),
+        hex: "{{site.color[1].glow}}",
+        var: function() {
+          return ("--color-" + this.name)}
+      },
+      accent: {
+        name: "{{site.color[2].title}}",
+        hex: "{{site.color[2].hex}}",
+        var: function() {
+          return ("--color-" + this.name)}
+      }
+    };
+    event.preventDefault();
+    console.log(event);
+    varSetterCSS(defaultStyles.primary.var(), defaultStyles.primary.hex);
+    varSetterCSS(defaultStyles.secondary.var(), defaultStyles.secondary.hex);
+    varSetterCSS(defaultStyles.glowsecondary.var(), defaultStyles.glowsecondary.hex);
+    varSetterCSS(defaultStyles.glowprimary.var(), defaultStyles.glowprimary.hex);
+    varSetterCSS(defaultStyles.accent.var(), defaultStyles.accent.hex);
   });
 });
