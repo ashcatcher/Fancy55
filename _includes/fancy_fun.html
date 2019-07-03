@@ -8,48 +8,35 @@
       <button type="submit" id="trap-card-0"  class="btn btn-primary input-group-btn" style="float: right;">Submit</button>
     </div>
     <div class="columns">
-      <div class="column col-12">
-        <div class="form-group form-horizontal">
+      <div class="column col-6">
+        <div class="form-group input-group form-horizontal">
           <label class="form-switch">
             <input id="colour-toggle"type="checkbox">
             <i class="form-icon"></i>Advanced
           </label>
-          <label class="form-switch invert" style="display: none;">
+          <label class="form-switch invert hidden">
             <input type="checkbox">
             <i class="form-icon"></i>Invert
           </label>
-          <label class="form-switch reset" style="display: none;">
+          <label class="form-switch reset hidden">
             <button class="btn btn-primary btn-sm
             input-group-btn reset-btn">Reset</button>
           </label>
+
         </div>
-
       </div>
-      <div class="column col-3">
-
-      </div>
-      <div class="column col-3 colour" style="display: none;">
-        {% for color in site.color %}
-          <label class="form-label"
-                 for="color-{{color.title}}">{{color.title}}</label>
-        {% endfor %}
-      </div>
-      <div class="column col-3 colour" style="display: none;">
-        {% for color in site.color %}
-          <div class="form-group form-horizontal colours">
-            <input id="color-{{color.title}}" class="form-input"
-                                              type="color"
-                                              value="{{color.hex}}">
-          </div>
-        {% endfor %}
-      </div>
-      <div class="column col-3 colour" style="display: none;">
-        {% for color in site.color %}
-          <div class="form-group form-horizontal colours">
-            <input id="color-{{color.title}}-glow" class="form-input" type="color"
-                                                                      value="{{color.glow}}">
-          </div>
-        {% endfor %}
+      <div class="column col-6">
+        <div class="form-horizontal input-group" style="">
+          {% for color in site.color %}
+            <div class="form-input colour hidden">
+              <!--<span class="label form-label
+                label-fancy">{{color.title}}</span>-->
+              <input id="color-{{color.title}}" class="form-input"
+                                                type="color"
+                                                value="{{color.hex}}">
+            </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </form>

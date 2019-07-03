@@ -32,69 +32,99 @@ body {
 
 /*
 body {
-  background-image: url("/assets/images/victoria.jpg");
-  width: 100%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+background-image: url("/assets/images/victoria.jpg");
+width: 100%;
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 }
-*/
+ */
 
-// Fancy55 Logo SASS
-.fancy {
-  display: flex;
-  color: var(--fancy-off);
-  font-size: var(--fancy-font-size);
-  font-family: var(--fancy-font);
-
-  &--tube, &--digit {
+  // Fancy55 Logo SASS
+  .fancy {
     display: flex;
+    color: var(--fancy-off);
+    font-size: var(--fancy-font-size);
+    font-family: var(--fancy-font);
+
+    &--tube, &--digit {
+      display: flex;
+      justify-content: center;
+      width: calc(0.6 * var(--fancy-font-size));
+      height: calc(1.5 * var(--fancy-font-size));
+
+      &--element {
+        position: absolute;
+        transition: 0.3s ease color, 0.3s ease text-shadow;
+      }
+    }
+
+    &--tube {
+      &--element {
+        &--active {
+          color: var(--color-primary);
+          text-shadow: 0px 0px 6px var(--color-primary-glow);
+          transition: 0.3s ease color, 0.3s ease text-shadow;
+        }
+      }
+    }
+
+    &--digit {
+      &--element {
+        &--active {
+          color: var(--color-secondary);
+          text-shadow: 0 0 60px var(--color-secondary-glow);
+          transition: 0.3s ease color, 0.3s ease text-shadow;
+        }
+      }
+    }
+  }
+
+  // Original Nixie Clock
+  .clock {
+    color: rgba(50, 50, 50, 0.35);
+    display: flex;
+    margin: 20vh auto;
+    text-align: center;
+    background: #191919;
     justify-content: center;
-    width: calc(0.6 * var(--fancy-font-size));
-    height: calc(1.5 * var(--fancy-font-size));
+    align-items: center;
+    line-height: initial;
+    font-size: var(--tube-font-size);
+    font-family: "Lato", sans-serif;
+    padding: 0;
 
-    &--element {
-      position: absolute;
-      transition: 0.3s ease color, 0.3s ease text-shadow;
+    p.separator {
+      font-size: calc(0.6 * var(--tube-font-size));
+      vertical-align: top;
+      line-height: initial;
+      color: var(--tube-text-color);
+      text-shadow: 0 0 6px var(--tube-glow-color);
     }
-  }
 
-  &--tube {
-    &--element {
-      &--active {
-        color: var(--color-primary);
-        text-shadow: 0px 0px 6px var(--color-primary-glow);
-        transition: 0.3s ease color, 0.3s ease text-shadow;
+    section {
+      display: flex;
+
+      div {
+        width: calc(0.6 * var(--tube-font-size));
+        height: calc(1 * var(--tube-font-size));
+        display: flex;
+        align-items: center;
+
+        p {
+          position: absolute;
+          transition: 0.3s ease color, 0.3s ease text-shadow;
+          margin: 0;
+
+          &.active {
+            color: var(--tube-text-color);
+            text-shadow: 0 0 6px var(--tube-glow-color);
+          }
+        }
       }
     }
   }
-
-  &--digit {
-    &--element {
-      &--active {
-        color: var(--color-secondary);
-        text-shadow: 0 0 60px var(--color-secondary-glow);
-        transition: 0.3s ease color, 0.3s ease text-shadow;
-      }
-    }
-  }
-}
-
-// Original Nixie Clock
-.clock {
-  color: rgba(50, 50, 50, 0.35);
-  display: flex;
-  margin: 20vh auto;
-  text-align: center;
-  background: #191919;
-  justify-content: center;
-  align-items: center;
-  line-height: initial;
-  font-size: var(--tube-font-size);
-  font-family: "Lato", sans-serif;
-  padding: 0;
-
   p.separator {
     font-size: calc(0.6 * var(--tube-font-size));
     vertical-align: top;
@@ -103,77 +133,66 @@ body {
     text-shadow: 0 0 6px var(--tube-glow-color);
   }
 
-  section {
+  #trap-door {
+    height: 30vh;
+    width: 100%;
+  }
+
+  .form-label {
+    padding: .4rem 0;
+    margin-bottom: .4rem;
+  }
+  .reset {
+    float: right;
+    padding: 0 0 0 0;
+    //width: 100%;
+    margin-bottom: auto;
+    button.reset-btn {
+      margin: 0;
+    }
+  }
+
+  .label-fancy {
+    background-color: black;
+  }
+
+  .colour {
+    width: 33%;
+    background: transparent !important;
+    border: none !important;
     display: flex;
+    input {
+      min-width: 50px;
+      width: 100%;
+    }
+  }
 
-    div {
-      width: calc(0.6 * var(--tube-font-size));
-      height: calc(1 * var(--tube-font-size));
-      display: flex;
-      align-items: center;
-
-      p {
-        position: absolute;
-        transition: 0.3s ease color, 0.3s ease text-shadow;
-        margin: 0;
-
-        &.active {
-          color: var(--tube-text-color);
-          text-shadow: 0 0 6px var(--tube-glow-color);
-        }
+  .trap-card {
+    width: calc(3.7 * var(--fancy-font-size));
+    input {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--color-primary-glow);
+      background-color: black;
+      color: var(--color-secondary);
+      font-family: var(--fancy-font);
+      float: left;
+      &::placeholder {
+        color: var(--color-primary);
       }
     }
-  }
-}
-p.separator {
-  font-size: calc(0.6 * var(--tube-font-size));
-  vertical-align: top;
-  line-height: initial;
-  color: var(--tube-text-color);
-  text-shadow: 0 0 6px var(--tube-glow-color);
-}
+    button {
+      border-radius: 8px;
+      border-color: var(--color-primary-glow);
+      margin: 10px;
+      float: left;
 
-#trap-door {
-  height: 30vh;
-  width: 100%;
-}
-
-.form-label {
-  padding: .4rem 0;
-  margin-bottom: .4rem;
-}
-.reset {
-  padding: 0 0 0 0;
-  //width: 100%;
-  margin-bottom: auto;
-  button.reset-btn {
-    margin: 0;
-  }
-}
-
-.trap-card {
-  width: calc(3.7 * var(--fancy-font-size));
-  input {
-    width: 100%;
-    border-radius: 8px;
-    border: 1px solid var(--color-primary-glow);
-    background-color: black;
-    color: var(--color-secondary);
-    font-family: var(--fancy-font);
-    float: left;
-    &::placeholder {
-      color: var(--color-primary);
     }
   }
-  button {
-    border-radius: 8px;
-    border-color: var(--color-primary-glow);
-    margin: 10px;
-    float: left;
-
+  .hidden {
+    display: none;
   }
-}
 
-::placeholder {
-  color: cyan;
-}
+  ::placeholder {
+    color: cyan;
+  }

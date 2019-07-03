@@ -123,13 +123,13 @@ $(document).ready(function() {
 // Toggles the advanced mode display on, for changing site colour scheme
 $(document).ready(function() {
   $('#colour-toggle').val(this.checked);
-  //console.log($('#colour-toggle').val(this.checked))
+  console.log($('#colour-toggle').val(this.checked))
   $('#colour-toggle').change(function() {
     $('.colour').each(function(index, element) {
-      $(element).toggle();
+      $(element).toggleClass('hidden');
     });
-    $('.invert').toggle();
-    $('.reset').toggle();
+    $('.invert').toggleClass('hidden');
+    $('.reset').toggleClass('hidden');
   });
 });
 
