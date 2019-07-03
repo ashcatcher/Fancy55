@@ -135,6 +135,16 @@ $(document).ready(function() {
 
 // Reset button functionality to return to default color scheme
 $(document).ready(function() {
+  var primary = "{{site.color[0].hex}}";
+  var primaryGlow = "{{site.color[0].glow}}";
+  var secondary = "{{site.color[1].hex}}";
+  var secondaryGlow = "{{site.color[1].glow}}";
+  var accent = "{{site.color[2].hex}}";
+  console.log(primaryGlow);
+  console.log(primary);
+  console.log(secondary);
+  console.log(secondaryGlow);
+  console.log(accent);
 });
 
 // Dynamically updates colour schemes when colour pickers are modified
