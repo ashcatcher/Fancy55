@@ -3,64 +3,8 @@
   {%- include head.html -%}
   <body>
     <div class="container columns col-gapless" style="width: 100%;">
-      <!--<div id="trap-door"></div>-->
-      <div class="container" style="justify-content: center;">
-        {% include fancy55.html %}
-      </div>
-      <div class="container" style="justify-content: center;">
-        <form class="trap-card form-horizontal" id="inspire">
-          <div class="input-group">
-            <input class="form-input formic" type="text"
-                                             id="trap-card-1"
-                                             name="message"
-                                             placeholder="Say Somethign!?">
-            <button type="submit" id="trap-card-0"  class="btn btn-primary input-group-btn" style="float: right;">Submit</button>
-          </div>
-          <div class="columns">
-            <div class="column col-3">
-
-              <div class="form-group form-horizontal">
-                <label class="form-switch">
-                  <input id="colour-toggle"type="checkbox">
-                  <i class="form-icon"></i>Advanced
-                </label>
-                <label class="form-switch invert" style="display: none;">
-                  <input type="checkbox">
-                  <i class="form-icon"></i>Invert
-                </label>
-                <label class="form-switch reset" style="display: none;">
-                  <button class="btn btn-primary btn-sm
-                  input-group-btn">Reset</button>
-                </label>
-              </div>
-            </div>
-            <div class="column col-3 colour" style="display: none;">
-              {% for color in site.color %}
-                <label class="form-label"
-                       for="color-{{color.title}}">{{color.title}}</label>
-              {% endfor %}
-            </div>
-            <div class="column col-3 colour" style="display: none;">
-              {% for color in site.color %}
-                <div class="form-group form-horizontal colours">
-                  <input id="color-{{color.title}}" class="form-input"
-                                                    type="color"
-                                                    value="{{color.hex}}">
-                </div>
-              {% endfor %}
-            </div>
-            <div class="column col-3 colour" style="display: none;">
-              {% for color in site.color %}
-                <div class="form-group form-horizontal colours">
-                  <input id="color-{{color.title}}-glow" class="form-input" type="color"
-                                                                            value="{{color.glow}}">
-                </div>
-              {% endfor %}
-            </div>
-          </div>
-        </form>
-      </div>
+      {{ content }}
     </div>
-    {{ content }}
+    {%- include javascripts.html -%}
   </body>
 </html>
