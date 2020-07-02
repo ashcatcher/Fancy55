@@ -1,7 +1,11 @@
 <div align="center">
-<h1>Fancy55</h1>
-<h4> Based on an opinionated starter project for <a href="http://jekyllrb.com/">Jekyll</a> that uses modern front-end tooling.</h4>
+  <h1>fancy55</h1>
+  <h4>A logo made out of Nixie Tubes</h4>
+  <p> Based on an opinionated starter project for <a href="http://jekyllrb.com/">Jekyll</a> that uses modern front-end tooling.</p>
 </div>
+
+
+
 
 ## Prerequisites
 
